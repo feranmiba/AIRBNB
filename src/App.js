@@ -1,29 +1,12 @@
-import './App.css';
-import  Header  from './components/Header'
-import Card from './components/Card'
-import data from './data'
-// import swimsuit from '../'
+import React from 'react'
+import Header from './components/Header'
 
-
-
-const App = () => {
-    const myData = data.map(data => {
-        return ( <Card  
-        key={data.id}
-        {...data}
-         />)
-    })
-    return (
-            <div >
-            <Header />
-            <section 
-            className='sect' 
-            >
-           {myData}
-           </section>
-            </div>
-
-    )
+function App() {
+  return (
+    <div>
+        <Header />
+    </div>
+  )
 }
 
-export default App;
+export default App
