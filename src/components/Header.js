@@ -1,22 +1,42 @@
 import React from 'react'
-import Sun from './Images/icon-sun.svg'
-import Createe from './Newne'
-import './all.css'
+import Menu from './Menu'
+import { Box } from '@mui/material'
+import Lists from './List'
+import { motion } from 'framer-motion'
+
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.1
+    }
+  }
+};
+const item = {
+  hidden: { y: 10, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1
+  }
+};
 
 function Header() {
   return (
-    <header>
-    <section className='head'>
-        <div className='up'>
-          <div>
-        <p> <span>TO DO</span> <img src={Sun} alt="" /> </p>
-        <Createe />
-        </div>
-        </div>
-
-        </section>
-    </header>
+    <Box>
+    <motion.div  className="container"
+    variants={container}
+    initial="hidden"
+    animate="visible">
+    <motion.div  className="item" variants={item}  style={{ display: 'flex', gap: '56px', padding: '12px 20px', backgroundColor: 'white', borderRadius: '3mm'}}>
+      <Menu />
+      <Lists />
+      </motion.div>
+      </motion.div>
+    </Box>
   )
 }
 
-export default Header
+export default Header;
